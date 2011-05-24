@@ -1,0 +1,52 @@
+<div class="span-20 last">	
+  <h3><%= h @member.name%>'s Presses <%#= controller.action_name %></h3>
+
+	<table>
+  	<tr class="header-row">
+			<th>Location</th>
+			<th>Device</th>
+			<th>Type</th>
+   		<th>Operator</th>
+   		<th>Ave dE</th>
+   		<th>Max dE</th>
+    	<th>Gray 50%</th>
+			<th>Time</th>
+			<% if !(session[:user_level].nil?) && session[:user_level] > 5 %>
+				<th>ID</th>
+				<th>Edit</th>
+			<% end %>
+  	</tr>
+
+
+	<% @list_devices.each do |device| %>
+  <% sheet = device.sheets.last %>
+		<% unless sheet.blank? %>
+	
+	  <tr valign="top" class=" <%= sheet.sheet_pass? ?  cycle('list-line-odd', 'list-line-even') : 'error-row'  %>">
+			<td><%=h device.location.name %></td> 
+    	<td class="<%= sheet.sheet_pass? ?  'pass' : 'fail'  %>">
+				<%= link_to device.name, :controller => 'devices', :action => 'device_trend_de', :device => device.id %>
+			</td>
+			<td><%=h device.kind %></td>   	
+			<td><%=h sheet.operator %></td>
+    	<td class="<%= sheet.ave_de_ok? ?  'pass' : 'fail'  %>">
+				<%= link_to sheet.ave_de, :controller => 'devices', :action => 'patch_de_by_sheet', :sheet_id => sheet.id %>
+			</td>
+    	<td class="<%= sheet.max_de_ok? ?  'pass' : 'fail'  %>">
+				<%= link_to sheet.max_de, :controller => 'devices', :action => 'patch_de_by_sheet', :sheet_id => sheet.id %>
+			</td>
+    	<td class="pass">
+				<%= link_to sheet.gray_50, :controller => 'devices', :action => 'patch_de_by_sheet', :sheet_id => sheet.id %>
+			</td>
+			<td><%= h(time_ago_in_words(sheet.created_at)) %> ago</td>
+			<% if !(session[:user_level].nil?) && session[:user_level] > 5 %>
+				<td><%=h sheet.id %></td>
+    		<td><%= link_to 'Edit', '' %></td>
+			<% end %>	
+  	</tr>
+		<% end %>
+	<% end %>	
+	</table>
+</div>
+
+

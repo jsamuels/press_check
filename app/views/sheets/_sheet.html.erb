@@ -1,0 +1,44 @@
+<table >
+	<tr class="header-row">
+		<th>Name</th>
+		<th>Value</th>
+	</tr>
+
+
+  <tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">
+		<td>ID</td><td><%=h @sheet.id %></td>
+	</tr>
+ 	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Location</td><td><%=h @sheet.device.location %></td>
+		</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Device</td><td><%=h @sheet.device.name %></td>
+	</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Profile</td><td><%=h @sheet.profile_name %></td>
+	</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Profile Mod Date</td><td><%=h @sheet.profile_mod_date %></td>
+	</tr>	
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Operator</td><td><%=h @sheet.operator %></td>
+	</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Job Number</td><td><%=h "N/A" %></td>
+	</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Proof Date</td><td><%=h @sheet.created_at %></td>
+	</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Spot Count</td><td><%=h @sheet.spot_color_count %></td>
+	</tr>	
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Sticker Count</td><td><%=h @sheet.sticker_count %></td>
+	</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>dE2000</td><td><%=h @sheet.dE2000 %></td>
+	</tr>
+	<tr valign="top" class=" <%= cycle('list-line-odd', 'list-line-even') %>">	
+		<td>Last Update</td><td><%=h @sheet.updated_at %></td>
+	</tr>	
+</table>

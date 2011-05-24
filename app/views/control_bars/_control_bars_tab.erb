@@ -1,0 +1,18 @@
+<div>
+	<h4><%= link_to "Order / Requests", {:controller => 'control_bars', :action => 'index'} %></h4>
+		<div>
+			<!-- control bars -->	
+			<%#	unless @devices.nil? %>
+				<%# @devices.each do |d| %>
+					<%#= link_to d.name, :controller => 'control_bars', :action => 'index', :device => d.name %><br/>
+				<%# end %>
+			<%# end %>
+			<br/>
+			<br/>
+			<p class="tab-links">
+			<%= link_to 'All', control_bars_path, :style => "color: #009;" %> | 
+			<%= link_to 'New', new_control_bar_path , :style => "color: #009;" %>
+				
+			</p>
+		</div>
+</div>

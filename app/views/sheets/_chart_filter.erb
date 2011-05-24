@@ -1,0 +1,109 @@
+<% form_for :dates, :url => {:action => "update_filter" } do |f| %>
+	<div class="span-10 last br">
+		<div class="span-2" >
+			<label>Location:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.collection_select(:location, @date_filter.find_locations, 
+					:id, :name, { :selected => (@date_filter.location.id if @date_filter.location) }, 
+					:class => "date_select")%>
+		</div>		
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>Press:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.collection_select(:device, @date_filter.find_location_devices, 
+					:id, :name, { :selected => @date_filter.device_id }, 
+					:class => "date_select")%>
+		</div>			
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>Standard:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.collection_select(:standard, @date_filter.find_standards, 
+					:id, :name, { :selected => @date_filter.standard_id }, 
+					:class => "date_select")%>
+		</div>			
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>Tolorance:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.collection_select(:tolerance, @date_filter.find_tolerances, 
+					:id, :name, { :selected => @date_filter.tolerance_id }, 
+					:class => "date_select")%>
+		</div>			
+	</div>
+
+	<div class="span-10 last br">
+		<% unless "device_de_by_patch" == @date_filter.chart_group -%>	
+			<div class="span-2">
+				<label>Color:</label>
+			</div>
+			<div class="span-8 last" >
+				<%= f.collection_select(:patch_color, @date_filter.find_patch_colors, 
+						:patch, :name, { :selected => @date_filter.patch_color }, 
+						:class => "date_select")%>
+			</div>			
+		<% end -%>			
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>Customer:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.collection_select(:customer, @date_filter.find_customers, 
+					:customer, :customer, {:prompt => 'All', :selected => @date_filter.customer }, 
+					:class => "date_select")%>
+		</div>			
+	</div>
+		
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>Event:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.collection_select(:event, @date_filter.find_events, 
+						:event, :event, {:prompt => 'All', :selected => @date_filter.event }, 
+						:class => "date_select")%>
+		</div>							
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>Start:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.text_field 'start_date' , :size => "10" , :value => @date_filter.get_start_date %>
+		</div>	
+	</div>
+
+	<div class="span-10 last br">
+		<div class="span-2">
+			<label>End:</label>
+		</div>
+		<div class="span-8 last" >
+			<%= f.text_field 'end_date', :size => "10" , :value => @date_filter.get_end_date %>
+		</div>
+	</div>
+
+	<div class="span-10 last br">
+		<%= submit_tag("Update")  %>
+	</div>
+<% end %>
+
+<%#= link_to "click here",  :controller => "devices", :action => "peek"  %>
+														
+														
+														
+														
+														

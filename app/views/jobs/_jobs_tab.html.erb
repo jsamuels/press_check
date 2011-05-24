@@ -1,0 +1,21 @@
+<div>
+	<h4><%= link_to "Statistics", {:controller => 'jobs', :action => 'index'} %></h4>
+		<div>
+			<!-- jobs -->	
+			<%#	unless @jobs.nil? %>
+				<%# @jobs.each do |j| %>
+					<%#= link_to j.name, :controller => 'jobs', :action => 'index', :job => j %><br/>
+				<%# end %>
+			<%# end %>
+			<br/>
+			<br/>
+			<p class="tab-links">
+			<%#= link_to_remote 'All', jobs_path, :style => "color: #009;" %> | 
+	    <%= link_to_remote( "click here",
+	                       :url =>{ :action => :say_when })%>	
+				
+			<%= link_to 'New', new_job_path , :style => "color: #009;" %>
+				
+			</p>
+		</div>
+</div>

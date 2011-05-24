@@ -1,0 +1,18 @@
+<div>
+	<h4><%= link_to "Notifications", {:controller => 'tolerances', :action => 'index'} %></h4>
+		<div>
+			<!-- tolerances -->	
+			<!-- <%	unless @devices.nil? %>
+				<% @devices.each do |d| %>
+					<%= link_to d.name, :controller => 'devices', :action => 'index', :device => d.name %><br/>
+				<% end %>
+			<% end %> -->
+			<br/>
+			<br/>
+			<p class="tab-links">
+			<%= link_to 'All', tolerances_path, :style => "color: #009;" %> | 
+			<%= link_to 'New', new_tolerance_path , :style => "color: #009;" %>
+				
+			</p>
+		</div>
+</div>

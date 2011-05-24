@@ -1,0 +1,36 @@
+<div class="span-20 last" id="main_display">		
+	<h3><%= h @member.name%>'s Jobs <%=h controller.action_name %> <%=h @my_var %></h3>
+	<table>
+  	<tr class="header-row">
+			<th>Customer</th>
+			<th>Name</th>
+			<th>Number</th>
+			<th>Version</th>
+   		<th>Process</th>
+   		<th>Type</th>
+    	<th>Ink Mfr</th>
+			<th>Ink Type</th>
+			<th>Plate Mfr</th>
+			<th>Curve</th>
+			<th>Substrate</th>
+			<th>Standard</th>
+			<th>Tolerance</th>
+			<th>Control Bar</th>
+  	</tr>
+		<span id="job_list">
+			<%= render(:partial => "job", :collection => @list_jobs)%>
+		</span>
+	</table>
+	
+	<br/>
+	<div id="time_div">
+    I don't have the time, but
+    <%= link_to_remote( "click here",
+                       :update => "time_div",
+                       :url =>{ :action => :say_when },
+											 :position => "after" )%>
+    and I will look it up.
+  </div>
+	
+	
+</div>	

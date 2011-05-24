@@ -1,0 +1,18 @@
+<h1>Listing control_bars</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @control_bars.each do |control_bar| %>
+  <tr>
+    <td><%= link_to 'Show', control_bar %></td>
+    <td><%= link_to 'Edit', edit_control_bar_path(control_bar) %></td>
+    <td><%= link_to 'Destroy', control_bar, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New control_bar', new_control_bar_path %>

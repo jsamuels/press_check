@@ -1,0 +1,12 @@
+<div id="display_chart">
+	<% if xml_data(@date_filter).blank? -%>
+	<p>To display a graph, select its link in the sidebar.</p>
+	<% else %>
+	<object width="<%= chart_width -%>" height="<%= chart_height -%>" id="<%= chart_swf(@date_filter.chart_type) -%>" >
+		<embed src="../FusionCharts/<%= chart_swf(@date_filter.chart_type) -%>" flashVars="<%= xml_data(@date_filter) -%>" 
+			quality="high" width="<%= chart_width -%>" height="<%=  chart_height -%>" name="<%= chart_swf(@date_filter.chart_type) -%>" 
+			type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+	</object>
+	<% end %>
+	
+</div>

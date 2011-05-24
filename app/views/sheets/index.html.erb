@@ -1,0 +1,14 @@
+<div class="span-20 last">	
+	<div id="select_filter">
+			<%= render(:partial => "chart_filter") %>
+	</div><!-- End dates -->
+</div>
+
+<div class="span-20 last">	
+  
+	<div id="trend-data">
+		<%= render(:partial => "chart", :object => @chart_width, :object => @chart_height, 
+									:object => @chart_swf , :object => @xml_data,
+									:object => @chart_folder) %>
+	</div>
+</div>

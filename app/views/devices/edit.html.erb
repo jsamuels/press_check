@@ -1,0 +1,45 @@
+<h1>Editing device</h1>
+
+<% form_for(@device) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :member_id %><br />
+    <%= f.select( "member_id", Member.all.collect {|m| [ m.name, m.id ] 
+	}, {:prompt => 'Select Member'}) %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :make %><br />
+    <%= f.text_field :make %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label :serial_number %><br />
+    <%= f.text_field :serial_number %>
+  </p>
+  <p>
+    <%= f.label :kind %><br />
+    <%= f.label :Printer %><%= f.radio_button (:kind, 'Printer')%>
+    <%= f.label :Monitor %><%= f.radio_button (:kind, 'Monitor')%>
+  </p>
+  <p>
+    <%= f.label :active %><br />
+    <%= f.check_box(:active) %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', devices_path %>

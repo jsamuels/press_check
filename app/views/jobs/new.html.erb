@@ -1,0 +1,76 @@
+<div class="span-20 last">	
+<h1>New Job</h1>
+
+<% form_for(@job) do |f| %>
+  <%= f.error_messages %>
+	<div class="span-7">
+	<%= f.hidden_field :member_id, :value => @member.id %>
+  <p>
+    <%= f.label :customer %><br />
+    <%= f.text_field :customer %>
+  </p>
+	<p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%#= f.text_field :version %>
+  </p>
+	</div>
+	<div class="span-7">
+  <p>
+    <%= f.label :printing_process %><br />
+    <%= f.select(:printing_process, ['Offset', 'Other'] ) %>
+  </p>
+  <p>
+    <%= f.label :printing_type %><br />
+    <%= f.select(:printing_type, ['Surface', 'Other']) %>
+  </p>
+  <p>
+    <%= f.label :ink_manufacturer %><br />
+    <%= f.select(:ink_manufacturer , ['Flint', 'Other']) %>
+  </p>
+  <p>
+    <%= f.label :inkset %><br />
+    <%= f.select(:inkset , ['Paste', 'Other']) %>
+  </p>
+	<p>
+		<%= f.label :plate %><br />
+    <%= f.select(:plate, ['Kodak', 'Other']) %>
+  </p>
+	<p>
+		<%= f.label :plate_curve %><br />
+    <%= f.select(:plate_curve, ['Linear', 'Other']) %>
+  </p>
+	</div>
+	<div class="span-6 last">
+	<p>
+		<%= f.label :substrate %><br />
+    <%= f.select(:substrate, ['Newsprint', 'Other']) %>
+  </p>
+	<p>
+		<%= f.label :standard %><br />
+    <%= f.select(:standard_id, [['gracol',1],['SWOP3',2],['SWOP5',3]])%>
+  </p>
+	<p>
+		<%= f.label :tolerance %><br />
+    <%#= f.select(:tolerance, [['Vertis',1],['Other',0]], {:prompt => 'Tolerance', :selected => 1})%>
+  </p>
+	<p>
+		<%= f.label :control_bar %><br />
+    <%= f.select(:control_bar_id, [['1A',1],['1B',2],['2A',3],['2B',4],['1C',5],['2C',6]], {:prompt => 'Control Bar', :selected => 1})%>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+	</div>
+<% end %>
+	<div class="span-20 last">
+	<%= link_to 'Back', jobs_path %>
+	</div>
+</div>

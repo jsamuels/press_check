@@ -1,0 +1,17 @@
+<div class="span-15 last" >
+	<div id="chart" class="chart">
+		<%#   *****   GRAPH  ******   -%>
+		<%= render(:partial => "sheets/chart") %>
+		<%#   show the link for trend/patch detail below chart   -%>
+		<%= if  "device_trend" == @date_filter.chart_group 
+					link_to('Patch Detail', :controller => 'devices', :action => 'device_by_patch', :device_id => @date_filter.device.id )
+				elsif "device_by_patch" == @date_filter.chart_group || @date_filter.sheet
+					link_to('Trend', :controller => 'devices', :action => 'device_trend', :device_id => @date_filter.device.id )
+				end	
+		%>				
+	</div>
+</div>
+
+<div id="select_filter" class="span-5 last">	
+		<%=  render(:partial => "sheets/chart_filter") unless @date_filter.sheet %>
+</div>
