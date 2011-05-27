@@ -45891,3 +45891,188 @@ Processing DevicesController#chart (for 157.130.135.86 at 2011-05-06 20:36:20) [
 Rendering template within layouts/application
 Rendering devices/chart
 Completed in 764ms (View: 708, DB: 64) | 200 OK [http://presscheck.vertisinc.com/devices/chart?mertic=de]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:50:20) [GET]
+Rendering template within layouts/application
+Rendering login/login
+Completed in 56ms (View: 24, DB: 8) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:50:38) [POST]
+  Parameters: {"name"=>"scott", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"bubba3927"}
+Rendering template within layouts/application
+Rendering login/login
+Completed in 12ms (View: 8, DB: 72) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:50:46) [POST]
+  Parameters: {"name"=>"scott", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"abc123"}
+Rendering template within layouts/application
+Rendering login/login
+Completed in 8ms (View: 4, DB: 104) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:50:50) [POST]
+  Parameters: {"name"=>"scott", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"abc123"}
+Rendering template within layouts/application
+Rendering login/login
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:51:55) [POST]
+  Parameters: {"name"=>"admin", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"abc123"}
+Rendering template within layouts/application
+Rendering login/login
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:53:46) [POST]
+  Parameters: {"name"=>"scottj", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"bubba3927"}
+Rendering template within layouts/application
+Rendering login/login
+Completed in 8ms (View: 8, DB: 0) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:53:53) [POST]
+  Parameters: {"name"=>"scottj", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"abc123"}
+Rendering template within layouts/application
+Rendering login/login
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:54:04) [POST]
+  Parameters: {"name"=>"sjohnson", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"abc123"}
+Rendering template within layouts/application
+Rendering login/login
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://presscheck.vertisinc.com/]
+
+
+Processing LoginController#login (for 99.60.211.162 at 2011-05-27 02:54:11) [POST]
+  Parameters: {"name"=>"sjohnson", "commit"=>"Login", "authenticity_token"=>"4KRpOM8YYZTxKT/qmxZDGkx6A5gi5sOlZA9qNO81qAw=", "password"=>"bubba3927"}
+Redirected to http://presscheck.vertisinc.com/devices
+Completed in 4ms (DB: 0) | 302 Found [http://presscheck.vertisinc.com/]
+
+
+Processing DevicesController#index (for 99.60.211.162 at 2011-05-27 02:54:11) [GET]
+Rendering template within layouts/application
+Rendering devices/index
+Completed in 2112ms (View: 688, DB: 1428) | 200 OK [http://presscheck.vertisinc.com/devices]
+
+
+Processing DevicesController#chart (for 99.60.211.162 at 2011-05-27 02:55:50) [GET]
+  Parameters: {"mertic"=>"g7"}
+Rendering template within layouts/application
+Rendering devices/chart
+
+ActionView::TemplateError (Couldn't find Tolerance without an ID) on line #2 of app/views/sheets/_chart.erb:
+1: <div id="display_chart">
+2: 	<% if xml_data(@date_filter).blank? -%>
+3: 	<p>To display a graph, select its link in the sidebar.</p>
+4: 	<% else %>
+5: 	<object width="<%= chart_width -%>" height="<%= chart_height -%>" id="<%= chart_swf(@date_filter.chart_type) -%>" >
+
+    app/helpers/trend_lines_helper.rb:13:in `get_trend_zones'
+    app/helpers/chart_xml_helper.rb:138:in `all_locations_chart_xml_multiple_devices'
+    app/helpers/chart_xml_helper.rb:86:in `all_locations_chart_xml'
+    app/helpers/chart_helper.rb:19:in `xml_data'
+    app/views/sheets/_chart.erb:2
+    app/views/devices/chart.html.erb:4
+    passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+    passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+    passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+    passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendering /var/www/sites/press_check/public/500.html (500 Internal Server Error)
+
+
+Processing DevicesController#device_trend_de (for 99.60.211.162 at 2011-05-27 02:56:00) [GET]
+  Parameters: {"device"=>"312"}
+
+ActionController::UnknownAction (No action responded to device_trend_de. Actions: activate, chart, device_by_patch, device_trend, find_date_filter, find_tab_index, get_member_pref, index, location, patch_by_sheet, peek, set_init, and update_filter):
+  passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+  passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendering /var/www/sites/press_check/public/404.html (404 Not Found)
+
+
+Processing DevicesController#patch_de_by_sheet (for 99.60.211.162 at 2011-05-27 02:56:05) [GET]
+  Parameters: {"sheet_id"=>"424"}
+
+ActionController::UnknownAction (No action responded to patch_de_by_sheet. Actions: activate, chart, device_by_patch, device_trend, find_date_filter, find_tab_index, get_member_pref, index, location, patch_by_sheet, peek, set_init, and update_filter):
+  passenger (2.2.4) lib/phusion_passenger/rack/request_handler.rb:91:in `process_request'
+  passenger (2.2.4) lib/phusion_passenger/abstract_request_handler.rb:206:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:376:in `start_request_handler'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:334:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/utils.rb:182:in `safe_fork'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:332:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:162:in `start'
+  passenger (2.2.4) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:261:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:254:in `spawn_rails_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:153:in `spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/spawn_manager.rb:286:in `handle_spawn_application'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `__send__'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:351:in `main_loop'
+  passenger (2.2.4) lib/phusion_passenger/abstract_server.rb:195:in `start_synchronously'
+
+Rendering /var/www/sites/press_check/public/404.html (404 Not Found)
+
+
+Processing DevicesController#location (for 99.60.211.162 at 2011-05-27 02:56:09) [GET]
+  Parameters: {"location"=>"1"}
+Rendering template within layouts/application
+Rendering devices/index
+Completed in 124ms (View: 104, DB: 8) | 200 OK [http://presscheck.vertisinc.com/devices/location?location=1]
+
+
+Processing DevicesController#chart (for 99.60.211.162 at 2011-05-27 02:56:13) [GET]
+  Parameters: {"mertic"=>"de"}
+Rendering template within layouts/application
+Rendering devices/chart
+Completed in 3516ms (View: 884, DB: 2656) | 200 OK [http://presscheck.vertisinc.com/devices/chart?mertic=de]
