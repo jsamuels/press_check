@@ -1,1 +1,558 @@
-# Logfile created on Wed Dec 16 12:14:47 -0600 2009
+# Logfile created on Wed Dec 16 12:14:47 -0600 2009  [4;36;1mSQL (15.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (14.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-06-03 13:56:37) [GET]
+  [4;36;1mUser Columns (16.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (16.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (14.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` IS NULL) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering login/login
+Rendered devices/_status_tab (1.6ms)
+Rendered devices/_trend_charts_tab (1.1ms)
+Completed in 177ms (View: 32, DB: 113) | 200 OK [http://localhost/]
+  [4;35;1mSQL (15.7ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (14.7ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-06-03 13:56:44) [POST]
+  Parameters: {"name"=>"jsamuels", "commit"=>"Login", "authenticity_token"=>"NViwvOacHc3Uo7KrJi7upBLmSioY/XlYG1fsLGZeDFU=", "password"=>"abc123"}
+  [4;35;1mUser Columns (14.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (15.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (16.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'jsamuels') LIMIT 1[0m
+Redirected to http://localhost:3000/devices
+Completed in 76ms (DB: 93) | 302 Found [http://localhost/]
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (14.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DevicesController#index (for 127.0.0.1 at 2011-06-03 13:56:45) [GET]
+  [4;36;1mUser Columns (14.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (16.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mMember Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `members`[0m
+  [4;36;1mMember Load (14.2ms)[0m   [0;1mSELECT * FROM `members` WHERE (`members`.`id` = 1) [0m
+  [4;35;1mDevice Load (34.4ms)[0m   [0mSELECT * FROM `devices` WHERE (`devices`.`active` = 1) ORDER BY name[0m
+  [4;36;1mLocation Load (16.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`member_id` = 1) [0m
+  [4;35;1mJob Load (33.9ms)[0m   [0mSELECT * FROM `jobs` WHERE (`jobs`.`member_id` = 1) ORDER BY number[0m
+  [4;36;1mMember Load (15.6ms)[0m   [0;1mSELECT * FROM `members` [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering devices/index
+  [4;35;1mDevice Columns (15.6ms)[0m   [0mSHOW FIELDS FROM `devices`[0m
+  [4;36;1mSheet Load (14.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 303) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 304) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 305) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.3ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 306) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (17.2ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 307) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 308) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.0ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 309) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Columns (16.7ms)[0m   [0mSHOW FIELDS FROM `sheets`[0m
+  [4;36;1mReading Load (16.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 394 AND (sheet_id = 394 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Columns (19.5ms)[0m   [0mSHOW FIELDS FROM `readings`[0m
+  [4;36;1mLocation Columns (15.9ms)[0m   [0;1mSHOW FIELDS FROM `locations`[0m
+  [4;35;1mLocation Load (15.7ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 394 AND (sheet_id = 394 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 394 AND (sheet_id = 394 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 394 AND (sheet_id = 394 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (15.5ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 394 AND (sheet_id = 394 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 394 AND (sheet_id = 394 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 310) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (18.3ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 402 AND (sheet_id = 402 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 402 AND (sheet_id = 402 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 402 AND (sheet_id = 402 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 402 AND (sheet_id = 402 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (17.1ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 402 AND (sheet_id = 402 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 402 AND (sheet_id = 402 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 311) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.6ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 414 AND (sheet_id = 414 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 414 AND (sheet_id = 414 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 414 AND (sheet_id = 414 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 414 AND (sheet_id = 414 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 414 AND (sheet_id = 414 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 414 AND (sheet_id = 414 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 312) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (13.9ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (13.8ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 424 AND (sheet_id = 424 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 313) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (18.4ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.1ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 434 AND (sheet_id = 434 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 314) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.6ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 443 AND (sheet_id = 443 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 315) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.1ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (17.3ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 454 AND (sheet_id = 454 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 316) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.6ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (13.5ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 463 AND (sheet_id = 463 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.0ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 317) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (17.9ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.5ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 473 AND (sheet_id = 473 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 318) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.3ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 822 AND (sheet_id = 822 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mLocation Load (14.5ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 822 AND (sheet_id = 822 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 822 AND (sheet_id = 822 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 822 AND (sheet_id = 822 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.9ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 822 AND (sheet_id = 822 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 822 AND (sheet_id = 822 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 319) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.8ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (15.8ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 371 AND (sheet_id = 371 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.0ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 320) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.7ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 148 AND (sheet_id = 148 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 148 AND (sheet_id = 148 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 148 AND (sheet_id = 148 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 148 AND (sheet_id = 148 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.6ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 148 AND (sheet_id = 148 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 148 AND (sheet_id = 148 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 321) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.9ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.3ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 381 AND (sheet_id = 381 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 322) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (13.3ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.7ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (14.5ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 820 AND (sheet_id = 820 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 323) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.4ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 563 AND (sheet_id = 563 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 563 AND (sheet_id = 563 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 563 AND (sheet_id = 563 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 563 AND (sheet_id = 563 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.4ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 563 AND (sheet_id = 563 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 563 AND (sheet_id = 563 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 324) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.6ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.1ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 593 AND (sheet_id = 593 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.0ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 325) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (18.7ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 603 AND (sheet_id = 603 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 603 AND (sheet_id = 603 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 603 AND (sheet_id = 603 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 603 AND (sheet_id = 603 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.5ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 603 AND (sheet_id = 603 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 603 AND (sheet_id = 603 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 326) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.1ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.8ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 612 AND (sheet_id = 612 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 327) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.6ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (17.2ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 623 AND (sheet_id = 623 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 328) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.4ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.7ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 633 AND (sheet_id = 633 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 329) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.9ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.7ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 643 AND (sheet_id = 643 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 330) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (17.8ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (15.7ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (14.2ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 653 AND (sheet_id = 653 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 331) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.3ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 663 AND (sheet_id = 663 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 663 AND (sheet_id = 663 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 663 AND (sheet_id = 663 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 663 AND (sheet_id = 663 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.2ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 663 AND (sheet_id = 663 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 663 AND (sheet_id = 663 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 332) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.3ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 673 AND (sheet_id = 673 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 673 AND (sheet_id = 673 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 673 AND (sheet_id = 673 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 673 AND (sheet_id = 673 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.7ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 673 AND (sheet_id = 673 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 673 AND (sheet_id = 673 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 333) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.5ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 683 AND (sheet_id = 683 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 683 AND (sheet_id = 683 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 683 AND (sheet_id = 683 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 683 AND (sheet_id = 683 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.4ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 683 AND (sheet_id = 683 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 683 AND (sheet_id = 683 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 334) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.4ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (18.4ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 693 AND (sheet_id = 693 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 335) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.2ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (15.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 703 AND (sheet_id = 703 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 336) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.4ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 713 AND (sheet_id = 713 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mLocation Load (16.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 713 AND (sheet_id = 713 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 713 AND (sheet_id = 713 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 713 AND (sheet_id = 713 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.8ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 713 AND (sheet_id = 713 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 713 AND (sheet_id = 713 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.3ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 337) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.7ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 338) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 339) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (17.0ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 340) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 341) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.7ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 342) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.2ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 343) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 344) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 345) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.2ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.9ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (14.4ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 14) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 772 AND (sheet_id = 772 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 346) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (17.5ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 347) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 348) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 349) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 350) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.0ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 351) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 723 AND (sheet_id = 723 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (15.1ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 723 AND (sheet_id = 723 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 723 AND (sheet_id = 723 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 723 AND (sheet_id = 723 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.3ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 723 AND (sheet_id = 723 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 723 AND (sheet_id = 723 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 352) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 353) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 354) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 355) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (13.4ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.7ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (16.7ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 733 AND (sheet_id = 733 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 356) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.3ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 357) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 358) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (17.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 359) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 360) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 361) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 362) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.1ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 363) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 364) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.4ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.6ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (17.1ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 10) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 743 AND (sheet_id = 743 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 365) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.0ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 366) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.2ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 367) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.3ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 368) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 369) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 370) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 371) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.2ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 372) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.3ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 373) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.2ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (17.1ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (14.6ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 753 AND (sheet_id = 753 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 374) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.9ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 375) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 376) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.5ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 377) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.0ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 378) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.9ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 379) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 380) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.9ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 444) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.2ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.4ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mLocation Load (14.8ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 23) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 830 AND (sheet_id = 830 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 445) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 381) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.5ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 382) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 383) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.5ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 384) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 385) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.1ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 386) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.3ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 387) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.1ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 388) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 389) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 390) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 391) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (20.1ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.2ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (14.1ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 763 AND (sheet_id = 763 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.8ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 392) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.0ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 393) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 394) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 395) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 396) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.5ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 397) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.1ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 792 AND (sheet_id = 792 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (13.9ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 15) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 792 AND (sheet_id = 792 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 792 AND (sheet_id = 792 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 792 AND (sheet_id = 792 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.4ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 792 AND (sheet_id = 792 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 792 AND (sheet_id = 792 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 398) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 399) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 400) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 401) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 402) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.0ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 403) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.1ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 404) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 405) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 406) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 407) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.5ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 408) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 409) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.3ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 410) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 411) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.0ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 412) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 413) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.1ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.2ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mLocation Load (16.4ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 17) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 483 AND (sheet_id = 483 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 414) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.6ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 493 AND (sheet_id = 493 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 17) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 493 AND (sheet_id = 493 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 493 AND (sheet_id = 493 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 493 AND (sheet_id = 493 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.4ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 493 AND (sheet_id = 493 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 493 AND (sheet_id = 493 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 415) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.5ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 503 AND (sheet_id = 503 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 17) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 503 AND (sheet_id = 503 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 503 AND (sheet_id = 503 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 503 AND (sheet_id = 503 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.4ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 503 AND (sheet_id = 503 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 503 AND (sheet_id = 503 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 416) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.9ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 17) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 814 AND (sheet_id = 814 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 417) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (15.5ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 523 AND (sheet_id = 523 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 17) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 523 AND (sheet_id = 523 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 523 AND (sheet_id = 523 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 523 AND (sheet_id = 523 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.2ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 523 AND (sheet_id = 523 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 523 AND (sheet_id = 523 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 418) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.3ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (16.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 17) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 533 AND (sheet_id = 533 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 419) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (16.2ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (17.1ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `locations` WHERE (`locations`.`id` = 17) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 543 AND (sheet_id = 543 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 420) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 421) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 422) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 423) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 424) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mReading Load (14.5ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 829 AND (sheet_id = 829 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mLocation Load (14.5ms)[0m   [0mSELECT * FROM `locations` WHERE (`locations`.`id` = 19) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 829 AND (sheet_id = 829 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 829 AND (sheet_id = 829 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(AVG(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 829 AND (sheet_id = 829 AND de + 0.0 <> 0.0 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mReading Load (14.8ms)[0m   [0mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 829 AND (sheet_id = 829 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT FORMAT(MAX(de),2) as value FROM `readings` WHERE (`readings`.sheet_id = 829 AND (sheet_id = 829 )) ORDER BY readings.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 425) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 426) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.1ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 427) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.4ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 428) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (17.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 429) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (15.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 430) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 431) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 432) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (14.4ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 433) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.3ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 434) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.6ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 435) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.8ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 436) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (15.9ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 437) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (14.9ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 438) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.5ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 439) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 440) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mSheet Load (16.7ms)[0m   [0mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 441) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;36;1mSheet Load (16.6ms)[0m   [0;1mSELECT * FROM `sheets` WHERE (`sheets`.device_id = 442) ORDER BY sheets.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `members` WHERE (`members`.`id` = 1) [0m
+  [4;36;1mMemberPreference Columns (17.1ms)[0m   [0;1mSHOW FIELDS FROM `member_preferences`[0m
+  [4;35;1mMemberPreference Load (15.9ms)[0m   [0mSELECT * FROM `member_preferences` WHERE (pref = 'logo' ) AND (`member_preferences`.`member_id` = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `members` WHERE (`members`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `member_preferences` WHERE (pref = 'logo' ) AND (`member_preferences`.`member_id` = 1) LIMIT 1[0m
+Rendered devices/_status_tab (5.7ms)
+Rendered devices/_trend_charts_tab (2.1ms)
+Completed in 4754ms (View: 526, DB: 4149) | 200 OK [http://localhost/devices]

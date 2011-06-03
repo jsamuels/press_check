@@ -6,9 +6,9 @@ development:
   reconnect: false
   database: press_check
   pool: 5
-  username: root
-  password: 
-  host: localhost
+  username: press_check
+  password: pr3ss_ch3ck
+  host: 174.143.210.109
   # username: press_check
   # password: pr3ss_ch3ck
   # host: 174.143.210.109
